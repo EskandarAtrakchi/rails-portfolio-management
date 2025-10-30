@@ -5,8 +5,18 @@
   </p>
 
   <% if user_signed_in? %>
-    <div class="d-flex justify-content-center gap-3">
-      <%= link_to "Go to Portfolio", portfolios_path, class: "btn btn-success btn-lg px-4" %>
+    <div class="card mx-auto shadow-lg" style="max-width: 600px;">
+      <div class="card-body">
+        <h4 class="card-title text-primary mb-3">Portfolio Overview</h4>
+        <p><strong>Total Assets:</strong> <%= @portfolio_count %></p>
+        <p><strong>Total Portfolio Value:</strong> 
+          $<%= number_with_precision(@total_value, precision: 2) %>
+        </p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <%= link_to "Manage Portfolios", portfolios_path, class: "btn btn-success btn-lg px-4" %>
       <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-dark btn-lg px-4" %>
     </div>
   <% else %>

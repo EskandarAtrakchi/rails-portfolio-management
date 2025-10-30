@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_30_153821) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_30_181538) do
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "asset_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_30_153821) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 

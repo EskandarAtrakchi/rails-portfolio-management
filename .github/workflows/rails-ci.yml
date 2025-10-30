@@ -1,0 +1,38 @@
+name: Rails CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      # Step 4: Prepare database (using SQLite)
+      - name: Setup database
+        run: |
+          cp config/database.yml config/database.ci.yml || true
+          RAILS_ENV=test bundle exec rails db:create db:migrate
+
+      # Step 5: Run tests (RSpec)
+      - name: Run RSpec tests
+        run: |
+          bundle exec rspec

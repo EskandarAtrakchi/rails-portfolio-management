@@ -75,6 +75,21 @@
       <footer class="text-center py-4 text-muted border-top">
         <small>&copy; <%= Time.now.year %> Market Portfolio — Built with Ruby on Rails</small>
       </footer>
+      <!-- Chart Modal -->
+      <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true" data-controller="tradingview">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chartModalLabel">Crypto Chart</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" data-tradingview-target="chart" id="tradingview_chart_container">
+              <div class="text-center text-muted">Loading chart...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </body>
 
 </html>

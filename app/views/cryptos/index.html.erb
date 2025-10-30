@@ -49,7 +49,9 @@
 
 <!-- TradingView Lightweight Charts -->
 <script src="https://s3.tradingview.com/tv.js"></script>
-<script>
+<% nonce = content_security_policy_nonce %>
+
+<script nonce="<%= nonce %>">
 document.addEventListener("turbo:load", () => {
   const modal = document.getElementById("chartModal");
   modal.addEventListener("show.bs.modal", (event) => {

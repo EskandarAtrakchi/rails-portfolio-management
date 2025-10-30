@@ -1,0 +1,15 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-lg">
+      <div class="card-body p-4">
+        <h3 class="card-title mb-4 text-center">Create Account</h3>
+
+        <%= render "form", user: @user %>
+
+        <div class="text-center mt-3">
+          <%= link_to "Back to Users", users_path, class: "btn btn-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

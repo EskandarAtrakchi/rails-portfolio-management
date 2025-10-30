@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4 text-primary">Edit Portfolio</h3>
+
+      <%= render "form", portfolio: @portfolio %>
+
+      <div class="text-center mt-3">
+        <%= link_to "Back to Portfolios", portfolios_path, class: "btn btn-outline-secondary" %>
+        <%= link_to "View Portfolio", @portfolio, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

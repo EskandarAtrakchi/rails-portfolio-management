@@ -1,0 +1,71 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-4">Edit Profile</h3>
+
+        <% if @user.errors.any? %>
+          <div class="alert alert-danger">
+            <strong><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</strong>
+            <ul class="mb-0">
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form_with model: @user, local: true do |form| %>
+          <div class="mb-3">
+            <%= form.label :first_name, class: "form-label" %>
+            <%= form.text_field :first_name, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :last_name, class: "form-label" %>
+            <%= form.text_field :last_name, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :username, class: "form-label" %>
+            <%= form.text_field :username, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :email, class: "form-label" %>
+            <%= form.email_field :email, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :phone_number, class: "form-label" %>
+            <%= form.text_field :phone_number, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :bio, class: "form-label" %>
+            <%= form.text_area :bio, rows: 3, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :profile_image_url, "Profile Image URL", class: "form-label" %>
+            <%= form.text_field :profile_image_url, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :password, "New Password (optional)", class: "form-label" %>
+            <%= form.password_field :password, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :password_confirmation, class: "form-label" %>
+            <%= form.password_field :password_confirmation, class: "form-control" %>
+          </div>
+
+          <div class="d-grid">
+            <%= form.submit "Update Profile", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

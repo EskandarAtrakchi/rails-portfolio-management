@@ -1,0 +1,43 @@
+<% if @portfolio.errors.any? %>
+  <div class="alert alert-danger">
+    <strong><%= pluralize(@portfolio.errors.count, "error") %> prevented saving:</strong>
+    <ul>
+      <% @portfolio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @portfolio, local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :asset_name, class: "form-label" %>
+    <%= form.text_field :asset_name, class: "form-control", placeholder: "e.g., Bitcoin" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :symbol, class: "form-label" %>
+    <%= form.text_field :symbol, class: "form-control", placeholder: "e.g., BTC" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.number_field :quantity, step: "0.0001", class: "form-control", placeholder: "e.g., 0.5" %>
+  </div>
+
+  <% if @portfolio.respond_to?(:price) %>
+    <div class="mb-3">
+      <%= form.label :price, "Purchase Price (USD)", class: "form-label" %>
+      <%= form.number_field :price, step: "0.01", class: "form-control", placeholder: "e.g., 35000" %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :notes, class: "form-label" %>
+    <%= form.text_area :notes, rows: 3, class: "form-control", placeholder: "Optional notes..." %>
+  </div>
+
+  <div class="d-grid">
+    <%= form.submit class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

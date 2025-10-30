@@ -1,0 +1,18 @@
+<div class="text-center py-5">
+  <h1 class="display-4 fw-bold mb-3">Welcome to Market Portfolio</h1>
+  <p class="lead mb-4">
+    Track cryptocurrency prices, manage your investment portfolio, and monitor your financial growth in one place.
+  </p>
+
+  <% if user_signed_in? %>
+    <div class="d-flex justify-content-center gap-3">
+      <%= link_to "Go to Portfolio", portfolios_path, class: "btn btn-success btn-lg px-4" %>
+      <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-dark btn-lg px-4" %>
+    </div>
+  <% else %>
+    <div class="d-flex justify-content-center gap-3">
+      <%= link_to "Register", register_path, class: "btn btn-primary btn-lg px-4" %>
+      <%= link_to "Login", login_path, class: "btn btn-outline-dark btn-lg px-4" %>
+    </div>
+  <% end %>
+</div>

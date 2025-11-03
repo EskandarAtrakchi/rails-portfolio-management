@@ -2,8 +2,9 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
-  # GET /portfolios
+  # GET /portfolios 
   def index
+    # Get all portfolios belonging to the current user
     @portfolios = current_user.portfolios
   end
 
@@ -13,6 +14,7 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/new
   def new
+    # Initialize a new portfolio for the current user
     @portfolio = current_user.portfolios.build
   end
 

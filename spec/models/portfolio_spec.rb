@@ -9,7 +9,7 @@ RSpec.describe Portfolio, type: :model do
   it "is valid with all required attributes" do
     user = User.create!(
       first_name: "John", last_name: "Doe", username: "jdoe",
-      email: "jdoe@example.com", password: "password"
+      email: "jdoe@thisIsATest.com", password: "password"
     )
     portfolio = user.portfolios.build(asset_name: "Bitcoin", symbol: "BTC", quantity: 2, price: 10000)
     expect(portfolio).to be_valid

@@ -20,7 +20,7 @@ RSpec.describe Portfolio, type: :model do
       first_name: "Jane", last_name: "Atrakch", username: "EskandarAtrakchi",
       email: "EskandarAtrakchi@example.com", password: "password"
     )
-    portfolio = user.portfolios.build(asset_name: "Ethereum", symbol: "ETH", quantity: 1, price: 3000)
+    portfolio = user.portfolios.build(asset_name: "Ethereum", symbol: "ETH", quantity: 0, price: 3000)
     expect(portfolio).not_to be_valid
   end
 end

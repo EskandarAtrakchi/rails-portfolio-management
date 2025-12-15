@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-
+    # Handle login logic
     if user.nil?
       flash.now[:alert] = "No account found with that email."
       render :new, status: :unprocessable_entity
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
+  # Logout action
   def destroy
     session[:user_id] = nil
     redirect_to root_path, notice: "Logged out successfully."

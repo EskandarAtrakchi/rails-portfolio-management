@@ -36,9 +36,11 @@ class PortfoliosController < ApplicationController
 
   # PATCH/PUT /portfolios/1
   def update
+    # Update the portfolio with the provided parameters
     if @portfolio.update(portfolio_params)
       redirect_to @portfolio, notice: "Portfolio was successfully updated."
     else
+      # If update fails, re-render the edit form with error messages
       flash.now[:alert] = "Please correct the errors below."
       render :edit, status: :unprocessable_entity
     end
@@ -54,11 +56,11 @@ class PortfoliosController < ApplicationController
   end
 
   private
-
+    # Use callbacks to share common setup or constraints between actions.
     def set_portfolio
       @portfolio = Portfolio.find(params[:id])
     end
-
+    # Only allow a list of trusted parameters through.
     def portfolio_params
       params.require(:portfolio).permit(:asset_name, :symbol, :quantity, :price, :notes)
     end

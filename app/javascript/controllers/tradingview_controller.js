@@ -5,11 +5,12 @@ export default class extends Controller {
   static targets = ["chart"]
 
   connect() {
-    // Optional: preload chart when controller connects
+    // preload chart when controller connects
   }
 
   show(event) {
     event.preventDefault()
+    // Get the symbol from data attribute
     const symbol = event.currentTarget.dataset.symbol
 
     // Clear previous chart
@@ -30,6 +31,7 @@ export default class extends Controller {
     modal.show()
   }
 
+  // renderChart with the selected symbol
   renderChart(symbol) {
     new TradingView.widget({
       width: "100%",

@@ -9,7 +9,7 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     assert_selector "h1", text: "Users"
   end
-
+ # Create test for user creation, updating, and deletion
   test "should create user" do
     visit users_url
     click_on "New user"
@@ -27,7 +27,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "User was successfully created"
     click_on "Back"
   end
-
+  # Test for updating a user
   test "should update User" do
     visit user_url(@user)
     click_on "Edit this user", match: :first
@@ -45,7 +45,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "User was successfully updated"
     click_on "Back"
   end
-
+ # Test for destroying a user
   test "should destroy User" do
     visit user_url(@user)
     click_on "Destroy this user", match: :first

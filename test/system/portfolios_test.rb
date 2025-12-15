@@ -4,12 +4,12 @@ class PortfoliosTest < ApplicationSystemTestCase
   setup do
     @portfolio = portfolios(:one)
   end
-
+  # define test for visiting the index
   test "visiting the index" do
     visit portfolios_url
     assert_selector "h1", text: "Portfolios"
   end
-
+  # Create test for portfolio creation, updating, and deletion
   test "should create portfolio" do
     visit portfolios_url
     click_on "New portfolio"
@@ -24,7 +24,7 @@ class PortfoliosTest < ApplicationSystemTestCase
     assert_text "Portfolio was successfully created"
     click_on "Back"
   end
-
+  # define test for updating a portfolio
   test "should update Portfolio" do
     visit portfolio_url(@portfolio)
     click_on "Edit this portfolio", match: :first
@@ -39,7 +39,7 @@ class PortfoliosTest < ApplicationSystemTestCase
     assert_text "Portfolio was successfully updated"
     click_on "Back"
   end
-
+  # define test for destroying a portfolio
   test "should destroy Portfolio" do
     visit portfolio_url(@portfolio)
     click_on "Destroy this portfolio", match: :first

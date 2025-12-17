@@ -1,6 +1,9 @@
 This README would normally document whatever steps are necessary to get the
 application up and running. 
 
+You can access the project deployed on render.com 
+https://rails-portfolio-management.onrender.com 
+
 # The testing done using RSPEC 
 ## Rails CI Workflow
 
